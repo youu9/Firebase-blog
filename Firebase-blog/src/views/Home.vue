@@ -2,14 +2,23 @@
   <div class="home">
     <BlogPost :post="welcomeScreen"/>
     <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index"/>
+    <div class="blog-card-wrap">
+      <div class="container">
+        <h3>View More Recent Blogs</h3>
+        <div class="blog-cards">
+          <BlogCard :post="post" v-for="(post, index) in sampleBlogCards" :key="index" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import BlogPost from "../components/BlogPost"
+import BlogCard from "../components/BlogCard"
 export default {
   name: "Home",
-  components: { BlogPost },
+  components: { BlogPost, BlogCard },
   data() {
     return {
       welcomeScreen: {
@@ -30,7 +39,24 @@ export default {
           blogCoverPhoto: "designed-for-everyone",
         }
       ],
-    }
-  }
+      sampleBlogCards: [
+        { blogTitle: "Blog card #1", blogCoverPhoto: "stock-1", blogDate: "November 1, 2021"},
+        { blogTitle: "Blog card #2", blogCoverPhoto: "stock-1", blogDate: "November 1, 2021"},
+        { blogTitle: "Blog card #3", blogCoverPhoto: "stock-1", blogDate: "November 1, 2021"},
+        { blogTitle: "Blog card #4", blogCoverPhoto: "stock-1", blogDate: "November 1, 2021"},
+      ],
+    };
+  },
 };
 </script>
+<style lang="scss" scoped>
+
+.blog-card-wrap {
+  h3 {
+    font-weight: 300;
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+}
+
+</style>
