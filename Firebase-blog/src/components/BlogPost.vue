@@ -1,5 +1,5 @@
 <template>
-    <div class="blog-wrapper">
+    <div class="blog-wrapper no-user">
         <div class="blog-content">
             <div>
                 <h2 v-if="post.welcomeScreen">{{post.title}}</h2>
@@ -9,7 +9,7 @@
                 <router-link class="link link-light" v-if="post.welcomeScreen" to="#">
                     Login/Register<Arrow class="arrow arrow-light" />
                 </router-link>
-                <router-link class="link link-light" v-else to="#">
+                <router-link class="link" v-else to="#">
                     View the post<Arrow class="arrow" />
                 </router-link>
             </div>
@@ -26,7 +26,7 @@ import Arrow from "../assets/Icons/arrow-right-light.svg"
 export default {
     name: "blogPost",
     props: ["post"],
-    component: {
+    components: {
         Arrow,
     }
 }
@@ -128,5 +128,19 @@ export default {
         }
     }
 
+    &:nth-child(even) {
+        .blog-content {
+            order: 2;
+        }
+        .blog-photo {
+            order: 1;
+        }
+    }
+}
+.no-user:first-child{
+    .blog-content {
+        background-color: #970404;
+        color: #fff;
+    }
 }
 </style>
