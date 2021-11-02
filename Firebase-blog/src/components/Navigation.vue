@@ -7,7 +7,7 @@
           <div class="nav-links">
               <ul v-show="!mobile ">
                   <router-link class="link" :to="{ name: 'Home'}">Home</router-link>
-                  <router-link class="link" :to="{ name: 'Home'}">Blogs</router-link>
+                  <router-link class="link" :to="{ name: 'Blogs'}">Blogs</router-link>
                   <router-link class="link" :to="{ name: 'Home'}">Create Post</router-link>
                   <router-link class="link" :to="{ name: 'Home'}">Login/Register</router-link>
               </ul>
